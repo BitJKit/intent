@@ -1,8 +1,9 @@
-package com.example.edittext
+package com.example.edittext.ui
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.edittext.R
 
 class DisplayMessageActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
