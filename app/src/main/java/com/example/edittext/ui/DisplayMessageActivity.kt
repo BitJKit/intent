@@ -1,21 +1,23 @@
 package com.example.edittext.ui
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.edittext.R
+import com.example.edittext.databinding.ActivityDisplayMessageBinding
 
 class DisplayMessageActivity: AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    private lateinit var binding: ActivityDisplayMessageBinding
+    private var result = ""
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_display_message)
 
-        var intent = intent
+        binding = ActivityDisplayMessageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val fName = intent.extras?.get(FNAME_EXTRA) ?: "0"
         val lName = intent.extras?.get(LNAME_EXTRA) ?: "1"
         val email = intent.extras?.get(EMAIL_EXTRA) ?: "2"
-
-        val resultTv = findViewById<TextView>(R.id.resultTv)
-        resultTv.text = "First Name: " + fName+ "\n Last name: "+ lName + "\nEmail: "+ email
+            result = ("First Name: " + fName+ "\n Last name: "+ lName + "\nEmail: "+ email)
+        binding.resultTv.text = result.toString()
     }
 }
+
